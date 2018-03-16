@@ -1,20 +1,19 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 13-03-2018 a las 03:18:41
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Servidor: localhost
+-- Tiempo de generación: 16-03-2018 a las 02:42:03
+-- Versión del servidor: 5.1.53
+-- Versión de PHP: 5.3.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `dajaya`
@@ -23,16 +22,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `boleto`
+--
+
+CREATE TABLE IF NOT EXISTS `boleto` (
+  `id_boleto` int(5) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(5) NOT NULL,
+  `asiento` varchar(5) NOT NULL,
+  PRIMARY KEY (`id_boleto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `boleto`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `camiones`
 --
 
-CREATE TABLE `camiones` (
-  `id_camion` int(11) NOT NULL,
-  `id_lugares` int(11) NOT NULL,
-  `matricula` varchar(25) NOT NULL,
-  `chofer_uno` varchar(25) NOT NULL,
-  `chofer_dos` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `camiones` (
+  `id_camion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_espacio` int(5) NOT NULL,
+  `matricula` varchar(8) NOT NULL,
+  `chofer1` varchar(25) NOT NULL,
+  `chofer2` varchar(25) NOT NULL,
+  PRIMARY KEY (`id_camion`,`id_espacio`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `camiones`
+--
+
 
 -- --------------------------------------------------------
 
@@ -40,12 +63,18 @@ CREATE TABLE `camiones` (
 -- Estructura de tabla para la tabla `clientes`
 --
 
-CREATE TABLE `clientes` (
-  `id_cliente` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id_cliente` int(5) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) NOT NULL,
   `destino` varchar(25) NOT NULL,
-  `telefono` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `telefono` int(11) NOT NULL,
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `clientes`
+--
+
 
 -- --------------------------------------------------------
 
@@ -53,11 +82,17 @@ CREATE TABLE `clientes` (
 -- Estructura de tabla para la tabla `destinos`
 --
 
-CREATE TABLE `destinos` (
-  `precio_viaje` double NOT NULL,
-  `destinos` varchar(25) NOT NULL,
-  `id_camion` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `destinos` (
+  `precioviaje` float NOT NULL,
+  `destino` varchar(30) NOT NULL,
+  `id_camion` int(5) NOT NULL,
+  PRIMARY KEY (`destino`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcar la base de datos para la tabla `destinos`
+--
+
 
 -- --------------------------------------------------------
 
@@ -65,40 +100,35 @@ CREATE TABLE `destinos` (
 -- Estructura de tabla para la tabla `empleados`
 --
 
-CREATE TABLE `empleados` (
-  `id_empleado` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `empleados` (
+  `id_empleado` int(5) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) NOT NULL,
-  `direccion` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `direccion` varchar(30) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_empleado`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Índices para tablas volcadas
+-- Volcar la base de datos para la tabla `empleados`
 --
 
---
--- Indices de la tabla `camiones`
---
-ALTER TABLE `camiones`
-  ADD PRIMARY KEY (`id_camion`);
+
+-- --------------------------------------------------------
 
 --
--- Indices de la tabla `clientes`
+-- Estructura de tabla para la tabla `reserva`
 --
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`id_cliente`);
+
+CREATE TABLE IF NOT EXISTS `reserva` (
+  `id_viaje` int(5) NOT NULL AUTO_INCREMENT,
+  `fecha` datetime DEFAULT NULL,
+  `id_cliente` int(5) NOT NULL,
+  `destino` varchar(30) NOT NULL,
+  `cantidad` int(5) NOT NULL,
+  PRIMARY KEY (`id_viaje`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Indices de la tabla `destinos`
+-- Volcar la base de datos para la tabla `reserva`
 --
-ALTER TABLE `destinos`
-  ADD PRIMARY KEY (`destinos`);
 
---
--- Indices de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`id_empleado`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
