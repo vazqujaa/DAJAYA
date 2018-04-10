@@ -1,0 +1,11 @@
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\bin\Debug\dajaya.exe
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\bin\Debug\dajaya.pdb
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\bin\Debug\MySql.Data.DLL
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\bin\Debug\MySql.Data.xml
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.csprojResolveAssemblyReference.cache
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.Form1.resources
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.Properties.Resources.resources
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.csproj.GenerateResource.Cache
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.exe
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.pdb
+c:\users\jasho\documents\visual studio 2010\Projects\dajaya\dajaya\obj\x86\Debug\dajaya.menu.resources
