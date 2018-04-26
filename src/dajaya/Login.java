@@ -207,6 +207,7 @@ public class Login extends javax.swing.JFrame {
                         
                         Ventas in=new Ventas ();
                         in.txtMostrarUsuario.setText(Usuario);
+                        in.txtMostrarUsCtes.setText(Usuario);
                         in.setVisible(true);
                         this.dispose();
                     }else{
